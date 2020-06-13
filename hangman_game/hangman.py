@@ -28,3 +28,38 @@ for i in range(len(alpha)):
 print("".join(wd))
 
 '''
+
+
+# the following code will return the word . 
+# level is the length of the word we need to predict
+# << update required >> the word should be in english dictionary , a proper english word
+def get_rand_word(level):
+    alpha = string.ascii_lowercase
+    word = []
+    for i in range(len(alpha)):
+        if len(word) == level:
+            break
+        else:
+            s =random.choice(alpha)
+            if s in word:
+                continue
+            else:
+                word.append(s)
+    return "".join(word)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
