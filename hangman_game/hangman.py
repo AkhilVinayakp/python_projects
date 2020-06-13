@@ -1,5 +1,8 @@
+
 import random
 import string
+import argparse
+
 '''
 
 test code for random word generation 
@@ -48,6 +51,34 @@ def get_rand_word(level):
     return "".join(word)
 
 
+# main part of the hangman game
+
+parser = argparse.ArgumentParser(description="hangman game to kill time")
+parser.add_argument('-l','--level', default=6, help =" level of the game default is 6")
+
+print("H A N G M A N!")
+print("the game about to begin")
+
+# putting in loop
+if input("<<<<<<Are you ready>>>> \n press y or Y to continue else any other key..\n >") == 'y' or 'Y':
+    args = parser.parse_args()
+    word = get_rand_word(args.level)
+    miss, correct, found = 0
+    while miss!=8 and found != args.level:
+        ch = input("> predict the charecter \n >")
+        if ch in word:
+            print("> WOW thats correct")
+            found+=1
+        else:
+            miss+=1
+            print("> Oh no that was a miss \t\t >life {}".format(8-miss))
+    if found == args.level:
+        print("<<<<<<<<<<<<<<<<<<<<victory>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    else:
+        print("<<<<<<<<<<<<<<<<<<<<<hanged!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>")
+else:
+    print("quiting")
+    
 
 
 
