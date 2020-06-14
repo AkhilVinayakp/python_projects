@@ -59,7 +59,6 @@ parser.add_argument('-l','--level', default=6, help =" level of the game default
 print("H A N G M A N!")
 print("the game about to begin")
 
-# putting in loop
 def main():
     args = parser.parse_args()
     word = get_rand_word(args.level)
