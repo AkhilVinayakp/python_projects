@@ -60,10 +60,12 @@ print("H A N G M A N!")
 print("the game about to begin")
 
 # putting in loop
-if input("<<<<<<Are you ready>>>> \n press y or Y to continue else any other key..\n >") == 'y' or 'Y':
+def main():
     args = parser.parse_args()
     word = get_rand_word(args.level)
-    miss, correct, found = 0
+    miss = 0
+    found = 0
+    correct = 0
     while miss!=8 and found != args.level:
         ch = input("> predict the charecter \n >")
         if ch in word:
@@ -76,9 +78,19 @@ if input("<<<<<<Are you ready>>>> \n press y or Y to continue else any other key
         print("<<<<<<<<<<<<<<<<<<<<victory>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     else:
         print("<<<<<<<<<<<<<<<<<<<<<hanged!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>")
+        print("the correct word is {}".format(word))
+
+
+
+s = input("press y to continue")        
+if s == 'y':
+	main()
 else:
-    print("quiting")
-    
+	print("exiting")
+
+
+
+
 
 
 
